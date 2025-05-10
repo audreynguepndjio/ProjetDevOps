@@ -17,7 +17,12 @@ def test_read_root():
 
 
 def test_create_item():
-    item = {"name": "stylo", "price": 1.99, "in_stock": True, "description": "Un stylo bleu"}
+    item = {
+        "name": "stylo",
+        "price": 1.99,
+        "in_stock": True,
+        "description" : "stylo bleu"
+    }
     response = client.post("/items", json=item)
     assert response.status_code == 200
     assert response.json()["name"] == "stylo"
