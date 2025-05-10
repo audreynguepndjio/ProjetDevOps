@@ -21,7 +21,7 @@ def test_create_item():
         "name": "stylo",
         "price": 1.99,
         "in_stock": True,
-        "description" : "stylo bleu"
+        "description": "stylo bleu"
     }
     response = client.post("/items", json=item)
     assert response.status_code == 200
