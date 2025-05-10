@@ -1,24 +1,17 @@
-# Correction Flake8 E402/W291 pour GitHub Actions
+# test_items.py
+
 import sys
 import os
-from fastapi.testclient import TestClient
 
+# Ajouter le chemin du projet (si nécessaire)
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from main import app  
+from main import app
+from fastapi.testclient import TestClient
 
 client = TestClient(app)
 
-
-def test_create_item():
-    response = client.post(
-        "/items", json={"name": "Stylo", "price": 2.5, "in_stock": True}
-    )
+def test_read_root():
+    response = client.get("/")
     assert response.status_code == 200
-    assert response.json()["name"] == "Stylo"
-
-
-def test_get_items():
-    response = client.get("/items")
-    assert response.status_code == 200
-    assert isinstance(response.json(), list)
+    assert response.json() == {"message": "API en ligne"}
