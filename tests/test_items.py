@@ -1,9 +1,11 @@
-from fastapi.testclient import TestClient
-from main import app
-
 import sys
 import os
+
+# Ajouter le chemin du projet avant les imports locaux
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+from fastapi.testclient import TestClient
+from main import app
 
 client = TestClient(app)
 
