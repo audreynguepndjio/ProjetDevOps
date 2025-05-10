@@ -1,3 +1,4 @@
+# Correction Flake8 E402/W291 pour GitHub Actions
 import sys
 import os
 from fastapi.testclient import TestClient
