@@ -54,20 +54,33 @@ Configurée avec GitHub Actions dans .github/workflows/ci.yml.
 Étapes :
 Linting avec flake8.
 Exécution des tests avec pytest.
+Analyse de sécurité avec bandit.
 
 
 Statut visible dans les badges GitHub (images/pipeline_CI.png).
 
 Déploiement
 
-Déployé manuellement sur Render via l'interface web.
-URL de l'API déployée : (https://projetdevops-1.onrender.com).
-Étapes de configuration :
-Connectez votre compte GitHub à Render.
-Créez un nouveau service Web.
-Sélectionnez le dépôt GitHub et la branche main.
-Configurez l'environnement Python, installez requirements.txt, et définissez la commande de démarrage : uvicorn main:app --host 0.0.0.0 --port 10000.
-Déployez et obtenez l'URL.
+API déployée manuellement sur Render
+
+ URL de l’API : https://projetdevops-1.onrender.com
+
+Étapes de déploiement :
+Connecter votre compte GitHub à Render
+
+Créer un Nouveau Web Service
+
+Sélectionner le dépôt GitHub → branche main
+
+Définir :
+
+Runtime : Python
+
+Build command : pip install -r requirements.txt
+
+Start command : uvicorn main:app --host 0.0.0.0 --port 10000
+
+Lancer le déploiement
 
 Bonus
 
@@ -83,16 +96,17 @@ Render : [images/Deploiement1.png,images/Deploiement2.png].
 
 Structure du projet
 DVP/
-├── main.py              # Code de l'API
-├── models.py            # Modèles Pydantic
-├── schemas.py           # Schémas pour la création
-├── crud.py              # Logique CRUD
-├── tests/               # Tests unitaires
-│   └── test_items.py    # Tests des endpoints
-├── .github/workflows/   # Pipeline CI/CD
-│   └── ci.yml           # Configuration GitHub Actions
-├── requirements.txt     # Dépendances
-├── README.md            # Ce fichier
+├── main.py               # Code de l'API principale
+├── models.py             # Modèles de données (Pydantic)
+├── schemas.py            # Schémas pour validation d'entrée
+├── crud.py               # Fonctions CRUD
+├── tests/
+│   └── test_items.py     # Tests unitaires
+├── .github/workflows/
+│   └── ci.yml            # CI avec GitHub Actions
+├── requirements.txt      # Dépendances Python
+├── .gitignore
+└── README.md             # Documentation du projet
 
 
 Réalisé par : Audrey Nguepndjio
