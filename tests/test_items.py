@@ -43,7 +43,7 @@ def test_update_item():
     assert response.status_code == 200
     assert response.json()["name"] == "stylo rouge"
     assert response.json()["price"] == 2.49
-    assert response.json()["in_stock"] == False
+    assert not response.json()["in_stock"]
     response = client.put("/items/999", json=updated_item)
     assert response.status_code == 404
     assert response.json()["detail"] == "Item non trouvé"
