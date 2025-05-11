@@ -69,7 +69,11 @@ Sélectionnez le dépôt GitHub et la branche main.
 Configurez l'environnement Python, installez requirements.txt, et définissez la commande de démarrage : uvicorn main:app --host 0.0.0.0 --port 10000.
 Déployez et obtenez l'URL.
 
+Bonus
 
+Documentation Swagger : FastAPI fournit automatiquement une documentation interactive via Swagger UI, accessible à /docs ( https://projetdevops-1.onrender.com/docs ). Cette interface permet de visualiser et tester tous les endpoints de l'API.
+
+Vérification de sécurité avec Bandit : Intégration de Bandit pour analyser le code et détecter des failles de sécurité potentielles. Bandit est exécuté automatiquement dans la pipeline CI/CD via GitHub Actions (voir ".github/workflows/ci.yml").
 
 Captures d'écran
 

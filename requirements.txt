@@ -4,3 +4,4 @@ pytest
 flake8
 httpx
 pydantic
+bandit>=1.7.9
