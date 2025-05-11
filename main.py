@@ -6,13 +6,16 @@ from crud import get_items, get_item, create_item, update_item, delete_item
 
 app = FastAPI()
 
+
 @app.get("/")
 def read_root():
     return {"message": "API en ligne"}
 
+
 @app.get("/items", response_model=List[Item])
 def read_items():
     return get_items()
+
 
 @app.get("/items/{item_id}", response_model=Item)
 def read_item(item_id: int):
@@ -21,9 +24,11 @@ def read_item(item_id: int):
         raise HTTPException(status_code=404, detail="Item non trouvé")
     return item
 
+
 @app.post("/items", response_model=Item)
 def create_new_item(item: ItemCreate):
     return create_item(item)
+
 
 @app.put("/items/{item_id}", response_model=Item)
 def update_existing_item(item_id: int, item: ItemCreate):
@@ -31,6 +36,7 @@ def update_existing_item(item_id: int, item: ItemCreate):
     if updated is None:
         raise HTTPException(status_code=404, detail="Item non trouvé")
     return updated
+
 
 @app.delete("/items/{item_id}")
 def delete_existing_item(item_id: int):

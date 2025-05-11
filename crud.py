@@ -3,6 +3,7 @@ from schemas import ItemCreate
 
 items = []
 
+
 def get_items():
     return items
 
@@ -17,7 +18,9 @@ def get_item(item_id: int):
 def create_item(item: ItemCreate):
     item_id = len(items) + 1
     # Créer un nouvel item à partir des données de ItemCreate
-    new_item = Item(id=item_id, name=item.name, price=item.price, in_stock=item.in_stock)
+    new_item = Item(
+        id=item_id, name=item.name, price=item.price, in_stock=item.in_stock
+    )
     items.append(new_item)
     return new_item
 
@@ -26,10 +29,7 @@ def update_item(item_id: int, item: ItemCreate):
     for i, existing_item in enumerate(items):
         if existing_item.id == item_id:
             updated_item = Item(
-                id=item_id,
-                name=item.name,
-                price=item.price,
-                in_stock=item.in_stock
+                id=item_id, name=item.name, price=item.price, in_stock=item.in_stock
             )
             items[i] = updated_item
             return updated_item
