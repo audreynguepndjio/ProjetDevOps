@@ -7,4 +7,6 @@ class Item(BaseModel):
     in_stock: bool
 
     class Config:
-        from_attributes = True 
+        from_attributes = True
+
+        
